@@ -88,8 +88,10 @@
   .section > .wrap > p.lead{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 36px;}
 
   .shelf{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .shelf-3{grid-template-columns:repeat(3,1fr);}
   .card{
     background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;
+    display:flex;flex-direction:column;
   }
   .badge{
     display:inline-block;font-size:.75rem;font-weight:700;padding:4px 10px;
@@ -98,10 +100,11 @@
   .badge-live{background:#eafaf0;color:#1e8a4c;}
   .badge-soon{background:#f2eefb;color:var(--purple);}
   .card h3{margin:0 0 10px;font-size:1.25rem;}
-  .card p.desc{color:var(--muted);margin:0 0 16px;}
+  .card p.desc{color:var(--muted);margin:0 0 16px;flex-grow:1;}
   .meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;font-size:.82rem;color:var(--muted);}
   .meta span{background:var(--cream);padding:4px 10px;border-radius:999px;border:1px solid var(--line);}
-  .card .btn{padding:11px 22px;font-size:.92rem;}
+  .card .btn{padding:11px 22px;font-size:.92rem;align-self:flex-start;}
+  .card .price{font-weight:800;color:var(--dark);}
 
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
   .feature h4{margin:0 0 8px;font-size:1.05rem;}
@@ -130,7 +133,7 @@
   footer .logo{margin-bottom:6px;display:block;}
 
   @media (max-width:760px){
-    .shelf, .grid-3, .steps{grid-template-columns:1fr;}
+    .shelf, .shelf-3, .grid-3, .steps{grid-template-columns:1fr;}
     nav a{margin-left:14px;font-size:.85rem;}
   }
 </style>
@@ -141,6 +144,7 @@
   <div class="logo">AmberWoodVdigit</div>
   <nav>
     <a href="#shop">Shop</a>
+    <a href="#more-shop">More Products</a>
     <a href="#inside">What's Inside</a>
     <a href="#how">How It Works</a>
   </nav>
@@ -209,7 +213,44 @@
   </div>
 </section>
 
-<section class="section section-alt" id="inside">
+<!-- NEW: More From The Shop -->
+<section class="section section-alt" id="more-shop">
+  <div class="wrap">
+    <h2>More From The Shop</h2>
+    <p class="lead">Fresh printables now live on Gumroad — instant download, ready to print today.</p>
+    <div class="shelf shelf-3">
+      <div class="card">
+        <span class="badge badge-live">Live now</span>
+        <h3>Halloween Coloring Adventures</h3>
+        <p class="desc">15 adorable Halloween coloring pages — pumpkins, ghosts, witches, monsters, bats and haunted houses — with bold outlines and large, clear areas that are easy for kids to color.</p>
+        <div class="meta">
+          <span>15 pages</span><span>PDF + PNG</span><span class="price">$3.99</span>
+        </div>
+        <a class="btn btn-primary" href="https://menhal3.gumroad.com/l/Halloween-color-adventure">Instant Download</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-live">Live now</span>
+        <h3>Family Halloween Costume Ideas</h3>
+        <p class="desc">50+ coordinated costume combinations for parents, kids, toddlers and even the family pet — from cute and cozy to spooky, nostalgic and gothic — plus a Halloween planning checklist.</p>
+        <div class="meta">
+          <span>15-page PDF</span><span>Instant download</span><span class="price">$4.99</span>
+        </div>
+        <a class="btn btn-primary" href="https://menhal3.gumroad.com/l/family-halloween-costume">Instant Download</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-live">Live now</span>
+        <h3>Hanukkah Gift Budget Planner</h3>
+        <p class="desc">A printable 8-night gift tracker and budget planner — budget overview, per-person tracker, gift-idea brainstorm page and shopping checklist, so nothing gets forgotten.</p>
+        <div class="meta">
+          <span>8-page PDF</span><span>Instant download</span><span class="price">$5.99</span>
+        </div>
+        <a class="btn btn-primary" href="https://menhal3.gumroad.com/l/hanukkah-gift-budget-planner">Instant Download</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="inside">
   <div class="wrap">
     <h2>What's inside a pack</h2>
     <p class="lead">Every activity pack is built to fill a whole party or a whole class period — no extra prep required.</p>
@@ -242,7 +283,7 @@
   </div>
 </section>
 
-<section class="section" id="how">
+<section class="section section-alt" id="how">
   <div class="wrap">
     <h2>Four steps to party time</h2>
     <p class="lead">The same simple flow, every pack, every season.</p>
@@ -271,7 +312,7 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section">
   <div class="wrap">
     <h2>Perfect for</h2>
     <div class="grid-3">
