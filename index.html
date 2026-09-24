@@ -1,10 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AmberWoodVdigit — Printable Party & Activity Packs</title>
+<meta name="description" content="Seasonal printable activity packs for home parties, classrooms, and kids' shows — bingo, scavenger hunts, coloring pages, and more. Instant PDF download.">
+<style>
+  :root{
+    --orange:#e8792f;
+    --purple:#5b3a86;
+    --dark:#1c1417;
+    --cream:#fbf6ef;
+    --muted:#6b6169;
+    --line:#e7ded4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:var(--cream);
+    color:var(--dark);
+    line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 24px;border-bottom:1px solid var(--line);
+    background:var(--cream);
+  }
+  .logo{font-weight:800;font-size:1.25rem;letter-spacing:.02em;}
+  nav a{margin-left:24px;font-weight:600;font-size:.95rem;color:var(--dark);}
+  nav a:hover{color:var(--orange);}
+
+  .hero{
+    text-align:center;padding:64px 24px 40px;
+  }
+  .eyebrow{
+    display:inline-block;background:var(--purple);color:#fff;
+    padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:700;
+    letter-spacing:.04em;margin-bottom:20px;
+  }
+  .hero h1{font-size:2.6rem;margin:0 0 16px;line-height:1.15;}
+  .hero h1 em{color:var(--orange);font-style:normal;}
+  .hero p{max-width:620px;margin:0 auto 28px;color:var(--muted);font-size:1.05rem;}
+  .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;}
+  .btn{
+    display:inline-block;padding:14px 28px;border-radius:10px;font-weight:700;
+    font-size:1rem;
+  }
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-primary:hover{background:#d5691f;}
+  .btn-secondary{background:#fff;border:2px solid var(--line);color:var(--dark);}
+  .btn-secondary:hover{border-color:var(--orange);}
+  .hero-note{font-size:.9rem;color:var(--muted);}
+  .hero-tags{margin-top:8px;font-size:.85rem;color:var(--muted);letter-spacing:.04em;}
+
+  /* Preview gallery */
+  .preview{
+    padding:20px 24px 64px;
+  }
+  .preview-head{text-align:center;margin-bottom:28px;}
+  .preview-head h2{font-size:1.6rem;margin:0 0 8px;}
+  .preview-head p{color:var(--muted);margin:0;font-size:.98rem;}
+  .preview-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  .preview-card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;box-shadow:0 4px 14px rgba(28,20,23,.06);
+  }
+  .preview-card img{
+    display:block;width:100%;height:230px;object-fit:cover;
+  }
+  .preview-card figcaption{
+    padding:12px 16px;font-size:.88rem;color:var(--muted);text-align:center;
+  }
+  @media (max-width:760px){
+    .preview-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2rem;}
+  }
+
+  section.section{padding:56px 24px;}
+  .section-alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .section h2{text-align:center;font-size:1.7rem;margin:0 0 8px;}
+  .section > .wrap > p.lead{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 36px;}
+
+  .shelf{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .shelf-3{grid-template-columns:repeat(3,1fr);}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;
+    display:flex;flex-direction:column;
+  }
+  .card-img{
+    display:block;width:100%;height:190px;object-fit:cover;
+    border-radius:10px;margin:-4px 0 18px;
+  }
+  .badge{
+    display:inline-block;font-size:.75rem;font-weight:700;padding:4px 10px;
+    border-radius:999px;margin-bottom:14px;letter-spacing:.03em;
+  }
+  .badge-live{background:#eafaf0;color:#1e8a4c;}
+  .badge-soon{background:#f2eefb;color:var(--purple);}
+  .card h3{margin:0 0 10px;font-size:1.25rem;}
+  .card p.desc{color:var(--muted);margin:0 0 16px;flex-grow:1;}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;font-size:.82rem;color:var(--muted);}
+  .meta span{background:var(--cream);padding:4px 10px;border-radius:999px;border:1px solid var(--line);}
+  .card .btn{padding:11px 22px;font-size:.92rem;align-self:flex-start;}
+  .card .price{font-weight:800;color:var(--dark);}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .feature h4{margin:0 0 8px;font-size:1.05rem;}
+  .feature p{margin:0;color:var(--muted);font-size:.93rem;}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step;}
+  .step{text-align:center;}
+  .step-num{
+    width:38px;height:38px;border-radius:50%;background:var(--orange);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;
+    margin:0 auto 12px;
+  }
+  .step h4{margin:0 0 6px;font-size:1.02rem;}
+  .step p{margin:0;color:var(--muted);font-size:.9rem;}
+
+  .cta{
+    text-align:center;padding:60px 24px;
+  }
+  .cta h2{font-size:1.7rem;margin:0 0 10px;}
+  .cta p{color:var(--muted);margin:0 0 24px;}
+
+  footer{
+    text-align:center;padding:40px 24px;color:var(--muted);font-size:.85rem;
+    border-top:1px solid var(--line);
+  }
+  footer .logo{margin-bottom:6px;display:block;}
+
+  @media (max-width:760px){
+    .shelf, .shelf-3, .grid-3, .steps{grid-template-columns:1fr;}
+    nav a{margin-left:14px;font-size:.85rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">AmberWoodVdigit</div>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#more-shop">More Products</a>
+    <a href="#inside">What's Inside</a>
+    <a href="#how">How It Works</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="eyebrow">Instant PDF downloads</span>
+  <h1>Party-ready printables, <em>done for you.</em></h1>
+  <p>Seasonal activity packs for home parties, classrooms, and kids' shows — bingo, scavenger hunts, coloring pages, and more, all in one print-and-play file.</p>
+  <div class="btn-row">
+    <a class="btn btn-primary" data-umami-event="click-hero-party-pack" href="https://menhal3.gumroad.com/l/halloween-show-kids-party-pack">Instant Download — Get the Pack</a>
+    <a class="btn btn-secondary" href="#shop">See the full shop</a>
+  </div>
+  <div class="hero-note">Print at home or a local shop — no design skills needed.</div>
+  <div class="hero-tags">20 PAGES &nbsp;·&nbsp; PRINT · PLAY · REPEAT</div>
+</section>
+
+<!-- NEW: Product preview / mockup gallery -->
+<section class="preview" id="preview">
+  <div class="wrap">
+    <div class="preview-head">
+      <h2>See what's inside</h2>
+      <p>A quick look at the pages — printed, played with, and colored in.</p>
+    </div>
+    <div class="preview-grid">
+      <figure class="preview-card">
+        <img src="images/mockup-1-printed-pages.jpg" alt="Printed Halloween bingo boards and coloring page laid out with crayons">
+        <figcaption>Bingo boards &amp; coloring page, printed and ready to play</figcaption>
+      </figure>
+      <figure class="preview-card">
+        <img src="images/mockup-2-bingo-scavenger.png" alt="Close-up of Halloween bingo boards and spooky scavenger hunt sheet">
+        <figcaption>Bingo boards + Spooky Scavenger Hunt, up close</figcaption>
+      </figure>
+      <figure class="preview-card">
+        <img src="images/mockup-3-kid-coloring.jpg" alt="Child coloring a jack-o-lantern coloring page with crayons">
+        <figcaption>A jack-o'-lantern coloring page in action</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="wrap">
+    <h2>The shop shelf</h2>
+    <p class="lead">One pack live now, more dropping through the season. Every pack is a single instant-download PDF — no shipping, no waiting.</p>
+    <div class="shelf">
       <div class="card">
-        <img class="card-img" src="https://public-files.gumroad.com/jymdxwxnyw4fq19liavbonrjofxh" alt="Halloween Menu & Table Styling Kit cover — elegant Halloween dinner party planner and table styling guide">
+        <span class="badge badge-live">Live now</span>
+        <h3>Halloween Show Kids Party Pack</h3>
+        <p class="desc">Eight bingo boards, a scavenger hunt, trivia &amp; riddles, six coloring pages, a maze, and a Mini Halloween Show script with stage roles for the kids to perform.</p>
+        <div class="meta">
+          <span>20 pages</span><span>Instant PDF</span><span>Pay-what-you-want</span>
+        </div>
+        <a class="btn btn-primary" data-umami-event="click-party-pack" href="https://menhal3.gumroad.com/l/halloween-show-kids-party-pack">Instant Download</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-soon">Coming soon</span>
+        <h3>Thanksgiving Kids Activity Pack</h3>
+        <p class="desc">The same print-and-play format, built for Thanksgiving tables and classrooms — games, coloring pages, and conversation prompts kids will actually enjoy.</p>
+        <div class="meta">
+          <span>Printable PDF</span><span>Next seasonal drop</span>
+        </div>
+        <a class="btn btn-secondary" data-umami-event="click-follow-shop" href="https://menhal3.gumroad.com">Follow the shop</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: More From The Shop -->
+<section class="section section-alt" id="more-shop">
+  <div class="wrap">
+    <h2>More From The Shop</h2>
+    <p class="lead">Fresh printables now live on Gumroad — instant download, ready to print today.</p>
+    <div class="shelf shelf-3">
+      <div class="card">
+        <img class="card-img" src="https://public-files.gumroad.com/rn4v5r1ab8gac7y1vbi5jg919s3q" alt="Halloween Coloring Adventures cover — 15 printable Halloween coloring pages">
+        <span class="badge badge-live">Live now</span>
+        <h3>Halloween Coloring Adventures</h3>
+        <p class="desc">15 adorable Halloween coloring pages — pumpkins, ghosts, witches, monsters, bats and haunted houses — with bold outlines and large, clear areas that are easy for kids to color.</p>
+        <div class="meta">
+          <span>15 pages</span><span>PDF + PNG</span><span class="price">$3.99</span>
+        </div>
+        <a class="btn btn-primary" data-umami-event="click-halloween-coloring" href="https://menhal3.gumroad.com/l/Halloween-color-adventure">Instant Download</a>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://public-files.gumroad.com/6e2jjgl26rmyebywgrhhsql4p2ua" alt="Family Halloween Costume Ideas cover — 50+ costume combinations guide">
+        <span class="badge badge-live">Live now</span>
+        <h3>Family Halloween Costume Ideas</h3>
+        <p class="desc">50+ coordinated costume combinations for parents, kids, toddlers and even the family pet — from cute and cozy to spooky, nostalgic and gothic — plus a Halloween planning checklist.</p>
+        <div class="meta">
+          <span>15-page PDF</span><span>Instant download</span><span class="price">$4.99</span>
+        </div>
+        <a class="btn btn-primary" data-umami-event="click-costume-guide" href="https://menhal3.gumroad.com/l/family-halloween-costume">Instant Download</a>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://public-files.gumroad.com/7xsap5u2zizfnoxzkfa4ry93qmhs" alt="Hanukkah Gift Budget Planner cover — printable 8-night gift tracker">
+        <span class="badge badge-live">Live now</span>
+        <h3>Hanukkah Gift Budget Planner</h3>
+        <p class="desc">A printable 8-night gift tracker and budget planner — budget overview, per-person tracker, gift-idea brainstorm page and shopping checklist, so nothing gets forgotten.</p>
+        <div class="meta">
+          <span>8-page PDF</span><span>Instant download</span><span class="price">$5.99</span>
+        </div>
+        <a class="btn btn-primary" data-umami-event="click-hanukkah-planner" href="https://menhal3.gumroad.com/l/hanukkah-gift-budget-planner">Instant Download</a>
+      </div>
+      <div class="card">
+        <img class="card-img" src="REPLACE_WITH_COVER_IMAGE_URL" alt="Halloween Menu &amp; Table Styling Kit cover — printable party menu and table decor guide">
         <span class="badge badge-live">Live now</span>
         <h3>Halloween Menu &amp; Table Styling Kit</h3>
-        <p class="desc">A moody, elegant Halloween party guide — 20 themed menu ideas across courses, 4 table-styling palettes, editable menu &amp; place card templates, and a printable shopping and prep checklist.</p>
+        <p class="desc">A styled party-planning guide with menu ideas across four courses, table-styling palettes and themes, editable menu and place card mockups, and a printable checklist — so your Halloween table looks as good as it tastes.</p>
         <div class="meta">
-          <span>15-page PDF</span><span>Instant download</span><span class="price">$6.99</span>
+          <span>15-page PDF</span><span>Instant download</span><span class="price">$X.XX</span>
         </div>
-        <a class="btn btn-primary" data-umami-event="click-menu-styling-kit" href="https://menhal3.gumroad.com/l/halloween-menu-table-styling-kit">Instant Download</a>
+        <a class="btn btn-primary" data-umami-event="click-menu-styling-kit" href="REPLACE_WITH_GUMROAD_LINK">Instant Download</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="inside">
+  <div class="wrap">
+    <h2>What's inside a pack</h2>
+    <p class="lead">Every activity pack is built to fill a whole party or a whole class period — no extra prep required.</p>
+    <div class="grid-3">
+      <div class="feature">
+        <h4>Bingo boards &amp; calling cards</h4>
+        <p>Multiple unique boards plus cut-apart calling cards, ready for a group game.</p>
+      </div>
+      <div class="feature">
+        <h4>Scavenger hunt</h4>
+        <p>A checklist that keeps kids moving, looking, and comparing finds.</p>
+      </div>
+      <div class="feature">
+        <h4>Trivia &amp; riddles</h4>
+        <p>Read-aloud jokes and questions that double as a built-in icebreaker.</p>
+      </div>
+      <div class="feature">
+        <h4>Coloring pages</h4>
+        <p>Print-ready pages for quiet time — and keepsakes worth the fridge.</p>
+      </div>
+      <div class="feature">
+        <h4>Mini show &amp; stage roles</h4>
+        <p>Host, narrator, costume judge, DJ — turn the party into a show the kids run.</p>
+      </div>
+      <div class="feature">
+        <h4>Printable certificate</h4>
+        <p>An award sheet for costumes, bingo winners, and every category in between.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="how">
+  <div class="wrap">
+    <h2>Four steps to party time</h2>
+    <p class="lead">The same simple flow, every pack, every season.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Print</h4>
+        <p>Works on regular Letter or A4 paper, at home or a local print shop.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Prep</h4>
+        <p>Cut apart the calling cards, grab crayons or markers for the activity pages.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Play</h4>
+        <p>Hand out boards, run the hunt, read the trivia, let everyone color and doodle.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Show time</h4>
+        <p>Assign stage roles and let the kids turn the party into a show.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Perfect for</h2>
+    <div class="grid-3">
+      <div class="feature">
+        <h4>Home parties</h4>
+        <p>Everything a parent needs for a Halloween night, laid out and ready to print.</p>
+      </div>
+      <div class="feature">
+        <h4>Classrooms</h4>
+        <p>Enough boards and pages to cover a whole class period, no extra planning.</p>
+      </div>
+      <div class="feature">
+        <h4>Kids' shows</h4>
+        <p>Stage roles and a certificate turn a normal party into a mini production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Grab this season's pack</h2>
+  <p>Instant download, print in minutes, no last-minute scrambling.</p>
+  <a class="btn btn-primary" data-umami-event="click-cta-party-pack" href="https://menhal3.gumroad.com/l/halloween-show-kids-party-pack">Instant Download</a>
+</section>
+
+<footer>
+  <span class="logo">AmberWoodVdigit</span>
+  <div>Seasonal printable activity packs.</div>
+  <div>All packs are for personal use only — please don't resell or redistribute the files. © AmberWoodVdigit.</div>
+</footer>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="c3683e99-7266-4bfa-97d8-0e38777b8ac9"></script>
+
+</body>
+</html>
